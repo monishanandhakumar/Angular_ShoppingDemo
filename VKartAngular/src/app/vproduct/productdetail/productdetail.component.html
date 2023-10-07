@@ -1,0 +1,24 @@
+
+<div class="shadow-lg p-3 mb-3 bg-white rounded">
+    <div>
+        <h3>{{product.title}}</h3>
+    </div>
+     <span class="align-middle">
+        <!--Property binding-->
+        <img [src]="product.imagepath" alt="{{product.title}}" height="200" width="200"/>
+    </span>
+    <h2>Price:{{product.price}}</h2>
+    <h2>Description:{{product.description}}</h2>
+    <div *ngIf="product.comments.length ==0; else comment">
+       <p>No Comments</p>
+    </div>
+                <!--Template reference variable-->
+    <ng-template #comment>
+        <h4>Comments</h4>
+        <hr>
+        <ul >
+        <li *ngFor="let comment of product.comments">{{comment}}</li>
+        </ul>
+    </ng-template>
+
+    <td> <button  class="btn btn-success" (click)="addToCart(product.id)">Buy</button></td>

@@ -1,0 +1,62 @@
+<div class="container">
+    <div class="row">
+      <form #productForm="ngForm" (ngSubmit)="onAddNewProduct(productForm)">
+         
+        <div class="mb-3">
+            <label for="id" class="form-label">Id</label>
+            <input type="number" class="form-control"  name="id" ngModel #id="ngModel" required >
+           <div *ngIf="id.touched && id.invalid">
+             <span style="color: brown;">ProductID is Required</span>
+           </div>
+         </div>  
+
+           <div class="mb-3">
+             <label for="title" class="form-label">Title</label>
+             <input type="text" class="form-control"  name="title" ngModel #title="ngModel" required >
+            <div *ngIf="title.touched && title.invalid">
+              <span style="color: brown;">Title is Required</span>
+  
+            </div>
+           </div>
+           <div class="mb-3">
+              <label for="description" class="form-label">Description</label>
+              <input type="text" class="form-control"  name="description" ngModel #description="ngModel" required>
+              <div *ngIf="description.touched && description.invalid">
+                  <span style="color: brown;">Description is Required</span>
+      
+                </div>
+            </div>
+            <div class="mb-3">
+              <label for="imagepath" class="form-label">Imagepath</label>
+              <input type="text" class="form-control"  name="imagepath" ngModel #imagepath="ngModel" required>
+              <div *ngIf="imagepath.touched && imagepath.invalid">
+                  <span style="color: brown;">Image is Required</span>
+      
+                </div>
+            </div>
+            <div class="mb-3">
+              <label for="quantity" class="form-label">Quantity</label>
+              <input type="text" class="form-control"  name="quantity" ngModel #quantity="ngModel" required>
+              <div *ngIf="quantity.touched && quantity.invalid">
+                  <span style="color: brown;">Quantity is Required</span>
+      
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="quantity" class="form-label">Price</label>
+                <input type="text" class="form-control"  name="price" ngModel #price="ngModel" required>
+                <div *ngIf="price.touched && price.invalid">
+                    <span style="color: brown;">Quantity is Required</span>
+        
+                  </div>
+              </div>
+
+        
+            <button class="btn btn-primary"  [disabled]="productForm.form.invalid">Add Product</button>
+     </form>
+          
+    </div>
+  
+  
+  </div>
